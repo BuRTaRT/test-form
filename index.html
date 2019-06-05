@@ -106,7 +106,6 @@
 
         },
         max: function (el) {
-            console.log(el.length)
             return el.value.length < el.dataset.max || el.length == undefined ? true : {
                 response: false,
                 errorName: "max length is " + el.dataset.max
@@ -114,7 +113,6 @@
 
         },
         exact: function (el) {
-            console.log(el.value.length)
             return el.value.length == el.dataset.exact || el.value.length == undefined ? true : {
                 response: false,
                 errorName: "the length must be exactly " + el.dataset.exact
