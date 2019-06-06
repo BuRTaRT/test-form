@@ -93,27 +93,27 @@
         },
         alpha: function (el) {
             let regExp = /^[a-zA-Z]+$/;
-            return regExp.test(el.value) ? true : {response: false, errorName: "field can contain only letters"};
+            return regExp.test(el.value) || el.value == "" ? true : {response: false, errorName: "field can contain only letters"};
         },
         alphanumeric: function (el) {
             let regExp = /[a-zA-Z0-9]*$/;
-            return regExp.test(el.value) ? true : {response: false, errorName: "field can contain only a-z and 1-9"};
+            return regExp.test(el.value) || el.value == "" ? true : {response: false, errorName: "field can contain only a-z and 1-9"};
 
         },
         numeric: function (el) {
             let regExp = /^(0|[1-9][0-9]*)$/;
-            return regExp.test(el.value) ? true : {response: false, errorName: "field can contain only numbers"};
+            return regExp.test(el.value) || el.value == "" ? true  : {response: false, errorName: "field can contain only numbers"};
 
         },
         max: function (el) {
-            return el.value.length < el.dataset.max || el.length == undefined ? true : {
+            return el.value.length < el.dataset.max || el.value == "" ? true : {
                 response: false,
                 errorName: "max length is " + el.dataset.max
             }
 
         },
         exact: function (el) {
-            return el.value.length == el.dataset.exact || el.value.length == undefined ? true : {
+            return el.value.length == el.dataset.exact || el.value == "" ? true : {
                 response: false,
                 errorName: "the length must be exactly " + el.dataset.exact
             }
